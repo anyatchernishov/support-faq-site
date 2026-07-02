@@ -122,6 +122,30 @@ nav a.active, nav a:hover {
   color: #5b52e8;
 }
 
+.faq-item table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.92rem;
+}
+
+.faq-item th,
+.faq-item td {
+  border: 1px solid #e5e7ef;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.faq-item th {
+  background: #f7f8fc;
+  font-weight: 600;
+  color: #111827;
+}
+
+.faq-item td {
+  color: #4b5563;
+}
+
 /* Footer */
 footer {
   text-align: center;
