@@ -48,17 +48,26 @@ git push origin <branch>
 
 ---
 
-## 3. Open and merge the PR
+## 3. Open AND merge the PR
+
+Opening the PR is not enough — **you must merge it yourself.** Do not stop and wait for a review or approval; there are none.
 
 ```bash
 gh pr create \
   --title "Add Q&A: {Question}" \
   --body "Publishes KB Provision from {ticket-id}: {Question}"
 
+# Merge immediately — no approvals required
 gh pr merge --squash --delete-branch
 ```
 
-No approvals required. Merging to `main` triggers an automatic Netlify deploy via GitHub Actions (~30s).
+Then confirm the merge actually happened before moving on:
+
+```bash
+gh pr view --json state,mergedAt   # state must be "MERGED"
+```
+
+If it is still `OPEN`, run `gh pr merge --squash --delete-branch` again. Only continue once the PR is `MERGED`. Merging to `main` triggers an automatic Netlify deploy via GitHub Actions (~30s).
 
 ---
 
