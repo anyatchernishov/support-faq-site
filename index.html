@@ -3,117 +3,224 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pulse CRM — Help & FAQ</title>
+  <title>FlowDeck Help Center</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="logo">Pulse CRM</div>
-    <nav>
-      <a href="#">Dashboard</a>
-      <a href="#">Docs</a>
-      <a href="#" class="active">Help & FAQ</a>
+
+  <!-- Top nav -->
+  <header class="top-nav">
+    <div class="nav-logo">FlowDeck <span>help center</span></div>
+    <nav class="nav-links">
+      <a href="#">Products</a>
+      <a href="#">Platform</a>
+      <a href="#">Resources</a>
+      <a href="#">Support</a>
     </nav>
+    <div class="nav-cta">
+      <a href="#" class="btn-outline">Contact sales</a>
+      <a href="#" class="btn-solid">Go to my account →</a>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>Help & Frequently Asked Questions</h1>
-      <p>Find answers to the most common questions about Pulse CRM. Can't find what you need? <a href="mailto:support@pulsecrm.io">Contact support</a>.</p>
-      <input type="text" id="search" placeholder="Search questions…" oninput="filterFAQ(this.value)" />
-    </section>
+  <!-- Breadcrumb + search -->
+  <div class="sub-nav">
+    <div class="breadcrumb"><a href="#">Support</a> <span class="sep">›</span> <strong>FlowDeck</strong></div>
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="#9ca3af" stroke-width="1.6"/><path d="M13 13l3.5 3.5" stroke="#9ca3af" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <input type="text" id="search" placeholder="Search" autocomplete="off" />
+    </div>
+  </div>
 
-    <section class="faq" id="faq-list">
+  <div class="page-body">
 
-      <article class="faq-item">
-        <h2>Can I import contacts from a CSV file?</h2>
-        <p>Yes. Navigate to <strong>Contacts → Import</strong>, upload your CSV, and map each column to a Pulse CRM field. Duplicate detection runs automatically based on email address.</p>
-      </article>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <p class="sidebar-heading">Topics</p>
+      <ul class="sidebar-topics" id="sidebar-topics">
+        <li><a class="sidebar-link active" href="#" data-topic="getting-started"><span class="chev">›</span>Getting Started</a></li>
+        <li><a class="sidebar-link" href="#" data-topic="automations"><span class="chev">›</span>Automations</a></li>
+        <li><a class="sidebar-link" href="#" data-topic="integrations"><span class="chev">›</span>Integrations</a></li>
+        <li><a class="sidebar-link" href="#" data-topic="security"><span class="chev">›</span>Security</a></li>
+        <li><a class="sidebar-link" href="#" data-topic="account"><span class="chev">›</span>Account</a></li>
+        <li><a class="sidebar-link" href="#" data-topic="billing"><span class="chev">›</span>Billing</a></li>
+        <li><a class="sidebar-link" href="#" data-topic="faq"><span class="chev">›</span>Q&amp;A</a></li>
+      </ul>
+    </aside>
 
-      <article class="faq-item">
-        <h2>How do I set up automated email sequences?</h2>
-        <p>Open <strong>Automations → Email Sequences</strong>, click <em>New Sequence</em>, and define your trigger (e.g., deal stage change, contact tag added). Add steps with delays between each email. Sequences start sending once you activate them.</p>
-      </article>
+    <!-- Main -->
+    <div class="main-wrap">
 
-      <article class="faq-item">
-        <h2>What integrations are available?</h2>
-        <p>Pulse CRM integrates natively with Gmail, Outlook, Slack, Zapier, HubSpot, and Salesforce. You can also connect any tool via our REST API or webhooks. See the <a href="#">Integrations page</a> for the full list.</p>
-      </article>
+      <!-- Hero -->
+      <div class="hero">
+        <h1 id="hero-title">Getting Started</h1>
+        <p id="hero-sub">Everything you need to know to get started with FlowDeck.</p>
+      </div>
 
-      <article class="faq-item">
-        <h2>How is my data backed up?</h2>
-        <p>Your data is automatically backed up every 6 hours to geographically redundant storage. You can trigger a manual export at any time from <strong>Settings → Data → Export</strong>. Backups are retained for 90 days.</p>
-      </article>
+      <!-- Topic panels — only the active one is shown -->
+      <main class="panels" id="panels">
 
-      <article class="faq-item">
-        <h2>How do I reset my password?</h2>
-        <p>Click <em>Forgot password</em> on the login page and enter your email. You'll receive a reset link within a few minutes. If you don't see it, check your spam folder or contact support.</p>
-      </article>
+        <!-- topic: Getting Started -->
+        <section class="topic-panel active" data-topic="getting-started">
+          <div class="qa-cards">
+            <article class="qa-card">
+              <h3 class="qa-card-q">How to invite teammates to a workspace</h3>
+              <div class="qa-card-a"><p>Go to <strong>Settings → Team</strong> and click <strong>Invite Member</strong>. Enter your teammate's email address and select their role — Admin, Editor, or Viewer. They'll receive an invite link by email, valid for 48 hours. Admins can resend invites from the same settings page.</p></div>
+            </article>
+            <article class="qa-card">
+              <h3 class="qa-card-q">How to archive a completed project board</h3>
+              <div class="qa-card-a"><p>Open the board, click the <strong>⋯ menu</strong> in the top-right corner, and select <strong>Archive Board</strong>. Archived boards are hidden from your main view but remain fully searchable. You can restore them at any time from <strong>Settings → Archived Boards</strong>.</p></div>
+            </article>
+            <article class="qa-card">
+              <h3 class="qa-card-q">Forgot username — how to recover account access</h3>
+              <div class="qa-card-a"><p>On the FlowDeck login page, click <strong>Forgot username?</strong> and enter the email address associated with your account. You'll receive an email with your username within a few minutes. If you no longer have access to that email address, contact <a href="mailto:support@flowdeck.io">support@flowdeck.io</a> with proof of account ownership.</p></div>
+            </article>
+          </div>
+        </section>
 
-      <article class="faq-item">
-        <h2>Can I customize the pipeline stages?</h2>
-        <p>Yes. Go to <strong>Settings → Pipelines</strong>, select a pipeline, and drag to reorder stages or click the pencil icon to rename them. You can also add new stages or archive ones you no longer use.</p>
-      </article>
+        <!-- topic: Automations -->
+        <section class="topic-panel" data-topic="automations">
+          <div class="qa-cards">
+            <article class="qa-card">
+              <h3 class="qa-card-q">How do I set up an automation trigger?</h3>
+              <div class="qa-card-a"><p>Open your board and click <strong>Automations</strong> in the top toolbar. Click <strong>+ Add Automation</strong>, then choose a trigger (e.g., "When status changes to Done") and an action (e.g., "Send an email notification"). Review the preview and click <strong>Activate</strong>. Automations run immediately once active.</p></div>
+            </article>
+            <article class="qa-card">
+              <h3 class="qa-card-q">Duplicate email notifications after re-enabling automation</h3>
+              <div class="qa-card-a"><p>This is a known issue: when an automation is re-enabled, any items that already match the trigger condition fire once immediately. To avoid this, temporarily set affected items to a neutral status before re-enabling, then update them after the automation is live.</p></div>
+            </article>
+            <article class="qa-card">
+              <h3 class="qa-card-q">Slack integration double-posting on status change</h3>
+              <div class="qa-card-a"><p>Double-posting typically happens when both a Slack integration and an automation are configured for the same trigger. Check <strong>Integrations → Slack</strong> and <strong>Automations</strong> to confirm only one is active for that event. Remove or disable the duplicate, then test with a single status change.</p></div>
+            </article>
+          </div>
+        </section>
 
-      <article class="faq-item">
-        <h2>What happens to my data if I cancel my subscription?</h2>
-        <p>Your account enters a 30-day grace period during which you can still export all your data. After 30 days, the account and its data are permanently deleted. We recommend exporting before cancelling.</p>
-      </article>
+        <!-- topic: Integrations -->
+        <section class="topic-panel" data-topic="integrations">
+          <div class="qa-cards">
+            <article class="qa-card">
+              <h3 class="qa-card-q">CSV import mis-mapping date columns (DD/MM vs MM/DD)</h3>
+              <div class="qa-card-a"><p>During import, FlowDeck defaults to MM/DD/YYYY. If your CSV uses DD/MM/YYYY, select <strong>Custom date format</strong> on the column-mapping screen and enter <code>DD/MM/YYYY</code>. You can also pre-convert your dates in Excel or Google Sheets before uploading to avoid the issue.</p></div>
+            </article>
+            <article class="qa-card">
+              <h3 class="qa-card-q">Trello board import stalling at 80% progress</h3>
+              <div class="qa-card-a"><p>Large Trello boards (500+ cards) can time out during import. The workaround is to export your Trello board in smaller batches — archive completed cards first, export, then import the active cards. Full large-board import support is on our roadmap for Q3 2025.</p></div>
+            </article>
+          </div>
+        </section>
 
-      <article class="faq-item">
-        <h2>How do I invite team members to my workspace?</h2>
-        <p>Go to <strong>Settings → Team</strong> and click <em>Invite Member</em>. Enter their email address and choose a role (Admin, Editor, or Viewer). They'll receive an invite link valid for 48 hours.</p>
-      </article>
+        <!-- topic: Security -->
+        <section class="topic-panel" data-topic="security">
+          <div class="qa-cards">
+            <article class="qa-card">
+              <h3 class="qa-card-q">Enable two-factor authentication (2FA)</h3>
+              <div class="qa-card-a"><p>Go to <strong>Settings → Security → Two-Factor Authentication</strong> and click <strong>Enable</strong>. Scan the QR code with an authenticator app (Google Authenticator, Authy, or 1Password), enter the 6-digit code to confirm, and save your backup codes somewhere safe. 2FA applies to your account on all devices.</p></div>
+            </article>
+            <article class="qa-card">
+              <h3 class="qa-card-q">SSO/SAML setup for Enterprise accounts</h3>
+              <div class="qa-card-a"><p>Enterprise accounts can configure SSO via <strong>Settings → Security → Single Sign-On</strong>. You'll need your Identity Provider's metadata URL or XML file. Supported IdPs include Okta, Azure AD, Google Workspace, and OneLogin. After saving the configuration, test with a non-admin account before enforcing SSO for all users.</p></div>
+            </article>
+          </div>
+        </section>
 
-      <article class="faq-item">
-        <h2>Can I assign multiple owners to a deal?</h2>
-        <p>Yes. Open the deal, click the Owner field, and search for additional team members to add. Each co-owner receives notifications and has full edit access to the deal. You can set one person as the primary owner from the same field.</p>
-      </article>
+        <!-- topic: Account -->
+        <section class="topic-panel" data-topic="account">
+          <div class="qa-cards">
+            <article class="qa-card">
+              <h3 class="qa-card-q">Request to transfer account ownership to new admin</h3>
+              <div class="qa-card-a"><p>The current account owner must go to <strong>Settings → Account → Ownership Transfer</strong>, select the new owner from the member list, and confirm with their password. The new owner will receive a confirmation email. Note: ownership transfer is immediate and cannot be undone without the new owner's cooperation.</p></div>
+            </article>
+            <article class="qa-card">
+              <h3 class="qa-card-q">Mobile app keeps logging out on Android</h3>
+              <div class="qa-card-a"><p>This is a known issue affecting Android 13+ devices with aggressive battery optimization enabled. Go to your Android <strong>Settings → Apps → FlowDeck → Battery</strong> and set it to <strong>Unrestricted</strong>. If the issue persists, try clearing the app cache. A fix is included in the next mobile release (v4.2.1).</p></div>
+            </article>
+          </div>
+        </section>
 
-      <article class="faq-item">
-        <h2>How many people can view and edit the same board at once?</h2>
-        <p>FlowDeck boards support real-time collaboration — everyone connected to a board sees changes as they happen. The number of people who can be connected to the same board simultaneously depends on your plan:</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Plan</th>
-              <th>Simultaneous connected users per board</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Free / Starter</td>
-              <td>Up to 25</td>
-            </tr>
-            <tr>
-              <td>Pro</td>
-              <td>Up to 100</td>
-            </tr>
-            <tr>
-              <td>Enterprise</td>
-              <td>Up to 500 (higher limits available on request)</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>If a board reaches its limit during a very active session (for example, an all-hands planning meeting or a live event), additional users will see a "board is busy, please retry" message. To support larger live sessions, you can upgrade your plan or split the activity across multiple boards.</p>
-      </article>
+        <!-- topic: Billing -->
+        <section class="topic-panel" data-topic="billing">
+          <div class="qa-cards">
+            <article class="qa-card">
+              <h3 class="qa-card-q">Annual renewal charge — why was I billed now?</h3>
+              <div class="qa-card-a"><p>FlowDeck subscriptions renew automatically on the same date each year. You can find your renewal date in <strong>Settings → Billing → Subscription</strong>. A reminder email is sent 14 days before renewal. If you were charged unexpectedly, check that your billing email matches your notification preferences.</p></div>
+            </article>
+            <article class="qa-card">
+              <h3 class="qa-card-q">Annual vs monthly billing — upgrade charge confusion</h3>
+              <div class="qa-card-a"><p>When you upgrade from monthly to annual mid-cycle, you're charged the annual rate immediately and your remaining monthly credit is applied as a prorated deduction. The exact amount credited is shown in the upgrade confirmation screen before you confirm.</p></div>
+            </article>
+            <article class="qa-card">
+              <h3 class="qa-card-q">Refund request within 14-day money-back window</h3>
+              <div class="qa-card-a"><p>FlowDeck offers a full refund within 14 days of your initial purchase or annual renewal. Email <a href="mailto:support@flowdeck.io">support@flowdeck.io</a> with your account email and the charge date. Refunds are processed within 5–10 business days to your original payment method.</p></div>
+            </article>
+          </div>
+        </section>
 
-    </section>
-  </main>
+        <!-- topic: Q&A — cards rendered from faq-data.js -->
+        <section class="topic-panel" data-topic="faq">
+          <div class="qa-cards" id="qa-cards"></div>
+        </section>
 
-  <footer>
-    <p>© 2025 Pulse CRM, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="mailto:support@pulsecrm.io">support@pulsecrm.io</a></p>
+      </main>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2025 FlowDeck, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="mailto:support@flowdeck.io">support@flowdeck.io</a></p>
   </footer>
 
+  <script src="faq-data.js"></script>
   <script>
-    function filterFAQ(query) {
-      const items = document.querySelectorAll('.faq-item');
-      const q = query.toLowerCase();
-      items.forEach(item => {
-        const text = item.textContent.toLowerCase();
-        item.style.display = text.includes(q) ? '' : 'none';
-      });
+    const heroData = {
+      'getting-started': { title: 'Getting Started',  sub: 'Everything you need to know to get started with FlowDeck.' },
+      'automations':     { title: 'Automations',       sub: 'Set up triggers, actions, and automated workflows.' },
+      'integrations':    { title: 'Integrations',      sub: 'Connect FlowDeck with the tools your team already uses.' },
+      'security':        { title: 'Security',          sub: 'Keep your account and data safe.' },
+      'account':         { title: 'Account',           sub: 'Manage your profile, team, and account settings.' },
+      'billing':         { title: 'Billing',           sub: 'Subscriptions, charges, and refunds explained.' },
+      'faq':             { title: 'Q&A',               sub: 'Answers to the most common questions about FlowDeck.' },
+    };
+
+    const heroTitle = document.getElementById('hero-title');
+    const heroSub   = document.getElementById('hero-sub');
+    const links     = document.querySelectorAll('.sidebar-link');
+    const panels    = document.querySelectorAll('.topic-panel');
+
+    // Render Q&A cards from faq-data.js — answers show open, no accordion
+    const qaCards = document.getElementById('qa-cards');
+    (window.FAQ_ITEMS || []).forEach(item => {
+      const card = document.createElement('article');
+      card.className = 'qa-card';
+      card.innerHTML =
+        `<h3 class="qa-card-q">${item.question}</h3>` +
+        `<div class="qa-card-a"><p>${item.answer}</p></div>`;
+      qaCards.appendChild(card);
+    });
+
+    // Sidebar click — swap the active panel and update the hero. No scrolling.
+    function show(topic) {
+      links.forEach(l => l.classList.toggle('active', l.dataset.topic === topic));
+      panels.forEach(p => p.classList.toggle('active', p.dataset.topic === topic));
+      if (heroData[topic]) {
+        heroTitle.textContent = heroData[topic].title;
+        heroSub.textContent   = heroData[topic].sub;
+      }
     }
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        show(link.dataset.topic);
+      });
+    });
+
+    // Live search — filter Q&A cards within the visible panel
+    document.getElementById('search').addEventListener('input', function () {
+      const q = this.value.trim().toLowerCase();
+      document.querySelectorAll('.topic-panel.active .qa-card').forEach(card => {
+        card.style.display = (!q || card.textContent.toLowerCase().includes(q)) ? '' : 'none';
+      });
+    });
   </script>
 </body>
 </html>
