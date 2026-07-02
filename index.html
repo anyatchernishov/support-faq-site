@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse CRM — Help & FAQ</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Pulse CRM</div>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#">Docs</a>
+      <a href="#" class="active">Help & FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Help & Frequently Asked Questions</h1>
+      <p>Find answers to the most common questions about Pulse CRM. Can't find what you need? <a href="mailto:support@pulsecrm.io">Contact support</a>.</p>
+      <input type="text" id="search" placeholder="Search questions…" oninput="filterFAQ(this.value)" />
+    </section>
+
+    <section class="faq" id="faq-list">
+
+      <article class="faq-item">
+        <h2>How do I invite team members to my workspace?</h2>
+        <p>Go to <strong>Settings → Team</strong> and click <em>Invite Member</em>. Enter their email address and choose a role (Admin, Editor, or Viewer). They'll receive an invite link valid for 48 hours.</p>
+      </article>
+
+      <article class="faq-item">
+        <h2>Can I import contacts from a CSV file?</h2>
+        <p>Yes. Navigate to <strong>Contacts → Import</strong>, upload your CSV, and map each column to a Pulse CRM field. Duplicate detection runs automatically based on email address.</p>
+      </article>
+
+      <article class="faq-item">
+        <h2>How do I set up automated email sequences?</h2>
+        <p>Open <strong>Automations → Email Sequences</strong>, click <em>New Sequence</em>, and define your trigger (e.g., deal stage change, contact tag added). Add steps with delays between each email. Sequences start sending once you activate them.</p>
+      </article>
+
+      <article class="faq-item">
+        <h2>What integrations are available?</h2>
+        <p>Pulse CRM integrates natively with Gmail, Outlook, Slack, Zapier, HubSpot, and Salesforce. You can also connect any tool via our REST API or webhooks. See the <a href="#">Integrations page</a> for the full list.</p>
+      </article>
+
+      <article class="faq-item">
+        <h2>How is my data backed up?</h2>
+        <p>Your data is automatically backed up every 6 hours to geographically redundant storage. You can trigger a manual export at any time from <strong>Settings → Data → Export</strong>. Backups are retained for 90 days.</p>
+      </article>
+
+      <article class="faq-item">
+        <h2>How do I reset my password?</h2>
+        <p>Click <em>Forgot password</em> on the login page and enter your email. You'll receive a reset link within a few minutes. If you don't see it, check your spam folder or contact support.</p>
+      </article>
+
+      <article class="faq-item">
+        <h2>Can I customize the pipeline stages?</h2>
+        <p>Yes. Go to <strong>Settings → Pipelines</strong>, select a pipeline, and drag to reorder stages or click the pencil icon to rename them. You can also add new stages or archive ones you no longer use.</p>
+      </article>
+
+      <article class="faq-item">
+        <h2>What happens to my data if I cancel my subscription?</h2>
+        <p>Your account enters a 30-day grace period during which you can still export all your data. After 30 days, the account and its data are permanently deleted. We recommend exporting before cancelling.</p>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Pulse CRM, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="mailto:support@pulsecrm.io">support@pulsecrm.io</a></p>
+  </footer>
+
+  <script>
+    function filterFAQ(query) {
+      const items = document.querySelectorAll('.faq-item');
+      const q = query.toLowerCase();
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
