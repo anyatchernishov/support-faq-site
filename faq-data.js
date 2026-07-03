@@ -26,9 +26,5 @@ window.FAQ_ITEMS = [
   {
     question: "How do I duplicate a board including its items?",
     answer: "Click the <strong>⋯ menu</strong> next to the board name in the sidebar and select <strong>Duplicate Board</strong>. You can choose to include items, automations, and integrations in the copy. The duplicate is created in the same workspace and can be moved to another workspace afterward."
-  },
-  {
-    question: "How many people can view and edit the same board at once?",
-    answer: "FlowDeck boards support real-time collaboration — everyone connected to a board sees changes as they happen. The number of people who can be connected to the same board simultaneously depends on your plan:<br><br><strong>Free / Starter:</strong> Up to 25<br><strong>Pro:</strong> Up to 100<br><strong>Enterprise:</strong> Up to 500 (higher limits available on request)<br><br>If a board reaches its limit during a very active session (for example, an all-hands planning meeting or a live event), additional users will see a \"board is busy, please retry\" message. To support larger live sessions, you can upgrade your plan or split the activity across multiple boards."
   }
 ];
