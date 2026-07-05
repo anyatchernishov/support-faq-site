@@ -244,6 +244,31 @@ body {
   line-height: 1.6;
 }
 
+.qa-card-a table {
+  width: 100%;
+  margin: 0.75rem 0;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.qa-card-a th,
+.qa-card-a td {
+  border: 1px solid #e5e7ef;
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.qa-card-a th {
+  background: #f4f5f7;
+  color: #111827;
+  font-weight: 600;
+}
+
+.qa-card-a td {
+  color: #4b5563;
+}
+
 .qa-card-a p a { color: #5b52e8; text-decoration: none; }
 .qa-card-a p a:hover { text-decoration: underline; }
 
