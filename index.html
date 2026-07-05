@@ -191,9 +191,10 @@
     (window.FAQ_ITEMS || []).forEach(item => {
       const card = document.createElement('article');
       card.className = 'qa-card';
+      const body = item.answer.trim().startsWith('<') ? item.answer : `<p>${item.answer}</p>`;
       card.innerHTML =
         `<h3 class="qa-card-q">${item.question}</h3>` +
-        `<div class="qa-card-a"><p>${item.answer}</p></div>`;
+        `<div class="qa-card-a">${body}</div>`;
       qaCards.appendChild(card);
     });
 
