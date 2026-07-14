@@ -280,6 +280,15 @@ body {
   border-radius: 3px;
 }
 
+.qa-card-a .qa-illustration,
+.qa-card-a img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0.75rem 0 1rem;
+  border-radius: 8px;
+}
+
 /* ── Footer ──────────────────────────────────────────────────────────────── */
 
 .site-footer {
