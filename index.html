@@ -156,9 +156,10 @@
           </div>
         </section>
 
-        <!-- topic: Q&A — cards rendered from faq-data.js -->
+        <!-- topic: Q&A — grouped by category from faq-data.js -->
         <section class="topic-panel" data-topic="faq">
-          <div class="qa-cards" id="qa-cards"></div>
+          <nav class="qa-category-nav" id="qa-category-nav" aria-label="Q&A categories"></nav>
+          <div id="qa-categories"></div>
         </section>
 
       </main>
@@ -186,17 +187,74 @@
     const links     = document.querySelectorAll('.sidebar-link');
     const panels    = document.querySelectorAll('.topic-panel');
 
-    // Render Q&A cards from faq-data.js — answers show open, no accordion
-    const qaCards = document.getElementById('qa-cards');
-    (window.FAQ_ITEMS || []).forEach(item => {
+    const CATEGORY_ORDER = [
+      'getting-started', 'automations', 'integrations',
+      'security', 'account', 'billing'
+    ];
+
+    function createQaCard(item) {
       const card = document.createElement('article');
       card.className = 'qa-card';
+      card.dataset.category = item.category || 'getting-started';
       const body = item.answer.trim().startsWith('<') ? item.answer : `<p>${item.answer}</p>`;
       card.innerHTML =
         `<h3 class="qa-card-q">${item.question}</h3>` +
         `<div class="qa-card-a">${body}</div>`;
-      qaCards.appendChild(card);
+      return card;
+    }
+
+    // Group FAQ items by category and render with section hierarchy
+    const faqItems = window.FAQ_ITEMS || [];
+    const grouped = {};
+    faqItems.forEach(item => {
+      const cat = item.category || 'getting-started';
+      if (!grouped[cat]) grouped[cat] = [];
+      grouped[cat].push(item);
     });
+
+    const qaCategories = document.getElementById('qa-categories');
+    const qaCategoryNav = document.getElementById('qa-category-nav');
+
+    CATEGORY_ORDER.filter(cat => grouped[cat]?.length).forEach(cat => {
+      const meta = heroData[cat];
+      const count = grouped[cat].length;
+
+      const navLink = document.createElement('a');
+      navLink.className = 'qa-category-nav-link';
+      navLink.href = `#qa-cat-${cat}`;
+      navLink.textContent = meta.title;
+      navLink.dataset.category = cat;
+      navLink.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById(`qa-cat-${cat}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        qaCategoryNav.querySelectorAll('.qa-category-nav-link').forEach(l => l.classList.remove('active'));
+        navLink.classList.add('active');
+      });
+      qaCategoryNav.appendChild(navLink);
+
+      const section = document.createElement('section');
+      section.className = 'qa-category-section';
+      section.id = `qa-cat-${cat}`;
+      section.dataset.category = cat;
+
+      const header = document.createElement('div');
+      header.className = 'qa-category-header';
+      header.innerHTML =
+        `<h2 class="qa-category-title">${meta.title}</h2>` +
+        `<p class="qa-category-sub">${meta.sub}</p>` +
+        `<span class="qa-category-count">${count} ${count === 1 ? 'answer' : 'answers'}</span>`;
+      section.appendChild(header);
+
+      const cards = document.createElement('div');
+      cards.className = 'qa-cards';
+      grouped[cat].forEach(item => cards.appendChild(createQaCard(item)));
+      section.appendChild(cards);
+      qaCategories.appendChild(section);
+    });
+
+    if (qaCategoryNav.firstChild) {
+      qaCategoryNav.firstChild.classList.add('active');
+    }
 
     // Sidebar click — swap the active panel and update the hero. No scrolling.
     function show(topic) {
@@ -215,11 +273,15 @@
       });
     });
 
-    // Live search — filter Q&A cards within the visible panel
+    // Live search — filter Q&A cards and hide empty category sections
     document.getElementById('search').addEventListener('input', function () {
       const q = this.value.trim().toLowerCase();
       document.querySelectorAll('.topic-panel.active .qa-card').forEach(card => {
         card.style.display = (!q || card.textContent.toLowerCase().includes(q)) ? '' : 'none';
+      });
+      document.querySelectorAll('.topic-panel.active .qa-category-section').forEach(section => {
+        const visible = [...section.querySelectorAll('.qa-card')].some(c => c.style.display !== 'none');
+        section.style.display = visible ? '' : 'none';
       });
     });
   </script>
