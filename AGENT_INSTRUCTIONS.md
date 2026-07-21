@@ -33,11 +33,23 @@ Edit **only** `faq-data.js`. Append one object to the `FAQ_ITEMS` array (before 
 ```js
   {
     question: "{Question}",
-    answer: "{Answer}"
+    answer: "{Answer}",
+    category: "{Category slug}"
   }
 ```
 
-`answer` may contain simple HTML (`<strong>`, `<a href>`, `<code>`) for formatting. The site renders the new card in the **Q&A** tab automatically — no HTML or CSS changes.
+Set `category` from the ticket's **Category** column. Use one of these slugs (must match the sidebar topics):
+
+| Category column value | Slug |
+|---|---|
+| Getting Started | `getting-started` |
+| Automations | `automations` |
+| Integrations | `integrations` |
+| Security | `security` |
+| Account | `account` |
+| Billing | `billing` |
+
+`answer` may contain simple HTML (`<strong>`, `<a href>`, `<code>`) for formatting. The site renders the new card under the matching category section in the **Q&A** tab automatically — no HTML or CSS changes.
 
 Commit:
 ```
