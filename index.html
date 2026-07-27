@@ -99,10 +99,9 @@
           </div>
         </section>
 
-        <!-- topic: Integrations — grouped by subcategory from integrations-data.js -->
+        <!-- topic: Integrations — flat list from integrations-data.js -->
         <section class="topic-panel" data-topic="integrations">
-          <nav class="qa-category-nav" id="integrations-category-nav" aria-label="Integrations topics"></nav>
-          <div id="integrations-categories"></div>
+          <div class="qa-cards" id="integrations-cards"></div>
         </section>
 
         <!-- topic: Security — grouped by subcategory from security-data.js -->
@@ -253,15 +252,13 @@
       countLabel: { singular: 'article', plural: 'articles' }
     });
 
-    renderCategorizedPanel({
+    function renderFlatPanel({ items, containerEl }) {
+      items.forEach(item => containerEl.appendChild(createQaCard(item, item.subcategory || '')));
+    }
+
+    renderFlatPanel({
       items: window.INTEGRATIONS_ITEMS || [],
-      groupKey: 'subcategory',
-      metaMap: window.INTEGRATIONS_SUBCATEGORIES || {},
-      order: window.INTEGRATIONS_SUBCATEGORY_ORDER || [],
-      navEl: document.getElementById('integrations-category-nav'),
-      containerEl: document.getElementById('integrations-categories'),
-      idPrefix: 'int-cat',
-      countLabel: { singular: 'article', plural: 'articles' }
+      containerEl: document.getElementById('integrations-cards')
     });
 
     renderCategorizedPanel({
