@@ -1,7 +1,7 @@
 // Integrations help articles for the Integrations section of the help center.
 //
-// Articles render as a single flat list. Each item keeps a `subcategory` key for
-// future categorization. `answer` may contain simple HTML (<strong>, <a>, <code>).
+// Articles are grouped by subcategory for easier browsing. `answer` may contain
+// simple HTML (<strong>, <a>, <code>) for formatting.
 //
 //   { question: "…", answer: "…", subcategory: "import-export" }
 
