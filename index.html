@@ -99,18 +99,10 @@
           </div>
         </section>
 
-        <!-- topic: Integrations -->
+        <!-- topic: Integrations — grouped by subcategory from integrations-data.js -->
         <section class="topic-panel" data-topic="integrations">
-          <div class="qa-cards">
-            <article class="qa-card">
-              <h3 class="qa-card-q">CSV import mis-mapping date columns (DD/MM vs MM/DD)</h3>
-              <div class="qa-card-a"><p>During import, FlowDeck defaults to MM/DD/YYYY. If your CSV uses DD/MM/YYYY, select <strong>Custom date format</strong> on the column-mapping screen and enter <code>DD/MM/YYYY</code>. You can also pre-convert your dates in Excel or Google Sheets before uploading to avoid the issue.</p></div>
-            </article>
-            <article class="qa-card">
-              <h3 class="qa-card-q">Trello board import stalling at 80% progress</h3>
-              <div class="qa-card-a"><p>Large Trello boards (500+ cards) can time out during import. The workaround is to export your Trello board in smaller batches — archive completed cards first, export, then import the active cards. Full large-board import support is on our roadmap for Q3 2025.</p></div>
-            </article>
-          </div>
+          <nav class="qa-category-nav" id="integrations-category-nav" aria-label="Integrations topics"></nav>
+          <div id="integrations-categories"></div>
         </section>
 
         <!-- topic: Security — grouped by subcategory from security-data.js -->
@@ -167,6 +159,7 @@
 
   <script src="faq-data.js"></script>
   <script src="security-data.js"></script>
+  <script src="integrations-data.js"></script>
   <script>
     const heroData = {
       'getting-started': { title: 'Getting Started',  sub: 'Everything you need to know to get started with FlowDeck.' },
@@ -257,6 +250,17 @@
       navEl: document.getElementById('security-category-nav'),
       containerEl: document.getElementById('security-categories'),
       idPrefix: 'sec-cat',
+      countLabel: { singular: 'article', plural: 'articles' }
+    });
+
+    renderCategorizedPanel({
+      items: window.INTEGRATIONS_ITEMS || [],
+      groupKey: 'subcategory',
+      metaMap: window.INTEGRATIONS_SUBCATEGORIES || {},
+      order: window.INTEGRATIONS_SUBCATEGORY_ORDER || [],
+      navEl: document.getElementById('integrations-category-nav'),
+      containerEl: document.getElementById('integrations-categories'),
+      idPrefix: 'int-cat',
       countLabel: { singular: 'article', plural: 'articles' }
     });
 
