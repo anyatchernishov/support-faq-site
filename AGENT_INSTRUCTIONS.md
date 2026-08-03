@@ -42,7 +42,7 @@ Set `category` from the ticket's **Category** column. Use one of these slugs (mu
 
 | Category column value | Slug |
 |---|---|
-| Getting Started | `getting-started` |
+| Start here | `getting-started` |
 | Automations | `automations` |
 | Integrations | `integrations` |
 | Security | `security` |
